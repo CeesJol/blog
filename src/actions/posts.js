@@ -19,7 +19,7 @@ export const startAddPost = (postData = {}) => {
 
 		return db.collection('users').doc(uid).collection('posts').add(post).then((ref) => {
 			dispatch(addPost({
-				id: ref.key,
+				id: ref.id,
 				...post
 			}))
 		})
@@ -69,8 +69,9 @@ export const startSetPosts = (posts) => {
 			const posts = [];
 
 			snapshot.forEach((childSnapshot) => {
+				console.log(childSnapshot);
 				posts.push({
-					id: childSnapshot.key,
+					id: childSnapshot.id,
 					...childSnapshot.data()
 				});
 			});
