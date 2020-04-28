@@ -8,7 +8,6 @@ export const addPost = (post) => ({
 
 export const startAddPost = (postData = {}) => {
 	return (dispatch, getState) => {
-		const uid = getState().auth.uid;
 		const {
 			title = '',
 			content = '',
@@ -17,7 +16,7 @@ export const startAddPost = (postData = {}) => {
 		} = postData;
 		const post = { title, content, createdAt, amount };
 
-		return db.collection('users').doc(uid).collection('posts').add(post).then((ref) => {
+		return db.collection('posts').add(post).then((ref) => {
 			dispatch(addPost({
 				id: ref.id,
 				...post
@@ -33,8 +32,7 @@ export const removePost = ({ id } = {}) => ({
 
 export const startRemovePost = ({ id } = {}) => {
 	return (dispatch, getState) => {
-		const uid = getState().auth.uid;
-		return db.collection('users').doc(uid).collection('posts').doc(id).delete().then(() => {
+		return db.collection('posts').doc(id).delete().then(() => {
 			dispatch(removePost({ id }));
 		});
 	};
@@ -48,8 +46,8 @@ export const editPost = (id, updates) => ({
 
 export const startEditPost = (id, updates) => {
 	return (dispatch, getState) => {
-		const uid = getState().auth.uid;
-		return db.collection('users').doc(uid).collection('posts').doc(id).update(updates).then(() => {
+		console.log('EDIT.', id, updates);
+		return db.collection('posts').doc(id).update(updates).then(() => {
 			dispatch(editPost(id, updates));
 		});
 	};
@@ -61,15 +59,14 @@ export const setPosts = (posts) => ({
 });
 
 export const startSetPosts = (posts) => {
+	
 	return (dispatch, getState) => {
-		const uid = getState().auth.uid;
-
-		return db.collection('users').doc(uid).collection('posts')
+		return db.collection('posts')
 			.get().then((snapshot) => {	
+				
 			const posts = [];
 
 			snapshot.forEach((childSnapshot) => {
-				console.log(childSnapshot);
 				posts.push({
 					id: childSnapshot.id,
 					...childSnapshot.data()

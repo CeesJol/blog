@@ -6,6 +6,9 @@ export class PostListFilters extends React.Component {
 	state = {
 		
 	};
+	onTextChange = (e) => {
+		this.props.setTextFilter(e.target.value);
+	};
 	onSortChange = (e) => {
 		if (e.target.value === 'date') {
 			this.props.sortByDate();

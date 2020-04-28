@@ -7,8 +7,7 @@ import { login, logout } from './actions/auth';
 import configureStore from './store/configureStore';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import db, { firebase } from './firebase/firebase';
-// db.collection('users').add({ name: 'Host' });
+import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
 import './styles/styles.scss';
 

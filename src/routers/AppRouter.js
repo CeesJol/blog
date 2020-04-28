@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import DashboardPage from '../components/DashboardPage';
 import NotFoundPage from '../components/NotFoundPage';
@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import AddPostPage from '../components/AddPostPage';
 import EditPostPage from '../components/EditPostPage';
+import PostPage from '../components/PostPage';
 
 export const history = createHistory();
 
@@ -16,6 +17,7 @@ const AppRouter = () => (
   	<div>
 			<Switch>
 				<PublicRoute path="/" component={App} exact={true} />
+				<PublicRoute path="/post/:id" component={PostPage} />
 				<PrivateRoute path="/dashboard" component={DashboardPage} />
 				<PrivateRoute path="/create" component={AddPostPage} />
 				<PrivateRoute path="/edit/:id" component={EditPostPage} />
