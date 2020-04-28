@@ -4,12 +4,7 @@ import Post from './Post';
 import selectPosts from '../selectors/posts';
 
 export const Feed = (props) => (
-	<div className="content-container">
-		<div className="list-header">
-			<div className="show-for-mobile">
-				Posts
-			</div>
-		</div>
+	<div>
 		<div className="list-body">
 			{
 				props.posts.length === 0 ? (

@@ -6,11 +6,12 @@ import Header from '../components/Header';
 export const PublicRoute = ({ 
 	isAuthenticated, 
 	component: Component,
+	headerStyle,
 	...rest
 }) => (
 	<Route {...rest} component={(props) => (
 		<div>
-			<Header />
+			<Header headerStyle={headerStyle} />
 			<Component {...props} />
 		</div>
 	)} />

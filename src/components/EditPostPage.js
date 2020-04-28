@@ -20,7 +20,7 @@ export class EditPostPage extends React.Component {
 						<h1 className="page-header__title">Edit Post</h1>
 					</div>
 				</div>
-				<div class="content-container">
+				<div className="content-container">
 					<PostForm
 						post={this.props.post}
 						onSubmit={this.onSubmit}
@@ -33,11 +33,9 @@ export class EditPostPage extends React.Component {
 	}
 }
 
-const mapStateToProps = (state, props) => {
-	return {
-		post: state.posts.find((post) => post.id === props.match.params.id)
-	};
-};
+const mapStateToProps = (state, props) => ({
+	post: state.posts.find((post) => post.id === props.match.params.id)
+});
 
 const mapDispatchToProps = (dispatch, props) => ({
 	startEditPost: (id, post) => dispatch(startEditPost(id, post)),

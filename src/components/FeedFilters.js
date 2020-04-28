@@ -1,24 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters';
+import { setTextFilter } from '../actions/filters';
 
 export class PostListFilters extends React.Component {
-	state = {
-		
-	};
 	onTextChange = (e) => {
 		this.props.setTextFilter(e.target.value);
 	};
-	onSortChange = (e) => {
-		if (e.target.value === 'date') {
-			this.props.sortByDate();
-		} else if (e.target.value === 'amount') {
-			this.props.sortByAmount();
-		}
-	};
 	render() {
 		return (
-			<div className="content-container">
+			<div>
 				<div className="input-group">
 					<div className="input-group__item">
 						<input
@@ -28,16 +18,6 @@ export class PostListFilters extends React.Component {
 							value={this.props.filters.text}
 							onChange={this.onTextChange}
 						/>
-					</div>
-					<div className="input-group__item">
-						<select
-							className="select"
-							value={this.props.filters.sortBy}
-							onChange={this.onSortChange}
-						>
-							<option value="date">Date</option>
-							<option value="amount">Amount</option>
-						</select>
 					</div>
 				</div>
 			</div>
@@ -50,11 +30,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	setTextFilter: (text) => dispatch(setTextFilter(text)),
-	sortByDate: () => dispatch(sortByDate()),
-	sortByAmount: () => dispatch(sortByAmount()),
-	setStartDate: (date) => dispatch(setStartDate(date)),
-	setEndDate: (date) => dispatch(setEndDate(date))
+	setTextFilter: (text) => dispatch(setTextFilter(text))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostListFilters);

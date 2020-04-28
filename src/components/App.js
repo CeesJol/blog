@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 import Feed from './Feed';
 import FeedFilters from './FeedFilters';
+import Splash from './Splash';
 
 export const App = ({ startLogin }) => (
-  <div>
-    <p>app</p>
-		<button className="button" onClick={startLogin}>Login with Google</button>
-		<p>feed</p>
-		<FeedFilters />
-		<Feed />
+	<div>
+		<Splash />
+		<div className="content-container">
+			<h1>Latest articles</h1>
+			<FeedFilters />
+			<Feed />
+		</div>
 	</div>
 );
 

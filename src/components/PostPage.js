@@ -8,8 +8,6 @@ export class PostPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		console.log(props);
-
 		this.state = {
 			id: props.post.id ? props.post.id : '',
 			title: props.post ? props.post.title : '',
@@ -20,23 +18,21 @@ export class PostPage extends React.Component {
 			isAuthenticated: props.isAuthenticated ? true : false
 		};
 	}
-	componentDidMount() {
-		this.props.startEditPost(this.state.id, {
-			amount: this.state.amount + 1
-		})
-		console.log(this.state.amount);
-	}
+	// componentDidMount() {
+	// 	this.props.startEditPost(this.state.id, {
+	// 		amount: this.state.amount + 1
+	// 	})
+	// 	console.log(this.state.amount);
+	// }
 	render() {
-		console.log(this.state);
 		return (
 			<div className="content-container">
 				<h1>{this.state.title}</h1>
 				<i>{this.state.createdAt}</i>
-				<p>Seen {this.state.amount} times</p>
 				<p>{this.state.content}</p>
-				{this.state.isAuthenticated ? (
+				{this.state.isAuthenticated && (
 					<Link to={`/edit/${this.state.id}`}>Edit this post</Link>
-				) : (<></>)}
+				)}
 			</div>
 			
 		)
