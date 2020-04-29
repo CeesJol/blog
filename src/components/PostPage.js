@@ -3,6 +3,8 @@ import moment from 'moment';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startEditPost } from '../actions/posts';
+import MarkdownIt from 'markdown-it';
+const md = new MarkdownIt();
 
 export class PostPage extends React.Component {
 	constructor(props) {
@@ -11,6 +13,7 @@ export class PostPage extends React.Component {
 		this.state = {
 			id: props.post.id ? props.post.id : '',
 			title: props.post ? props.post.title : '',
+			intro: props.post ? props.post.intro : '',
 			content: props.post ? props.post.content : '',
 			createdAt: props.post ? moment(props.post.amountcreatedAt).format('MMMM Do, YYYY') : moment(),
 			amount: props.post ? props.post.amount : 0,
@@ -29,12 +32,12 @@ export class PostPage extends React.Component {
 			<div className="content-container">
 				<h1>{this.state.title}</h1>
 				<i>{this.state.createdAt}</i>
-				<p>{this.state.content}</p>
 				{this.state.isAuthenticated && (
-					<Link to={`/edit/${this.state.id}`}>Edit this post</Link>
+					<p><Link to={`/edit/${this.state.id}`}>Edit this post</Link></p>
 				)}
+				<div dangerouslySetInnerHTML={{__html: md.render(this.state.intro)}} />
+				<div dangerouslySetInnerHTML={{__html: md.render(this.state.content)}} />
 			</div>
-			
 		)
 	}
 };

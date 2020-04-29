@@ -1,3 +1,42 @@
+.editor {
+	width: 100%;
+	background: lightgrey;
+	
+	@media (min-width: $desktop-breakpoint) {
+		display: flex;
+	}
+
+	&__input {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+
+		@media (max-width: $desktop-breakpoint) {
+			width: 100%;
+		}
+	}
+
+	&__preview {
+		width: 50%;
+		word-break: break-all;
+
+		@media (max-width: $desktop-breakpoint) {
+			width: 100%;
+		}
+	}
+}
+
+.text-input {
+	&--wide {
+		width: 100%;
+	}
+}
+
+.textarea {
+	height: 100%;
+	width: 100%;
+}
+
 // from https://codepen.io/zFunx/pen/XRyqvx
 input[type="text"] {
   border: 1px solid lightgrey;

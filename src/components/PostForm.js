@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+import MarkdownIt from 'markdown-it';
+const md = new MarkdownIt();
 
 export default class PostForm extends React.Component {
 	constructor(props) {
@@ -7,17 +9,22 @@ export default class PostForm extends React.Component {
 
 		this.state = {
 			title: props.post ? props.post.title : '',
+			intro: props.post ? props.post.intro : '',
 			content: props.post ? props.post.content : '',
 			createdAt: props.post ? moment(props.post.createdAt) : moment(),
 			amount: 0,
 			error: ''
 		};
 	}
-	onDescriptionChange = (e) => {
+	onTitleChange = (e) => {
 		const title = e.target.value;
 		this.setState(() => ({ title }));
 	};
-	onNoteChange = (e) => {
+	onIntroChange = (e) => {
+		const intro = e.target.value;
+		this.setState(() => ({ intro }));
+	};
+	onContentChange = (e) => {
 		const content = e.target.value;
 		this.setState(() => ({ content }));
 	};
@@ -30,6 +37,7 @@ export default class PostForm extends React.Component {
 			this.setState(() => ({ error: '' }));
 			this.props.onSubmit({
 				title: this.state.title,
+				intro: this.state.intro,
 				content: this.state.content,
 				createdAt: this.state.createdAt.valueOf(),
 				amount: 0
@@ -40,21 +48,48 @@ export default class PostForm extends React.Component {
 		return (
 			<form className="form" onSubmit={this.onSubmit}>
 				{this.state.error && <p className="form__error">{this.state.error}</p>}
+				<h3>Title</h3>
 				<input
 					type="text"
-					placeholder="Description"
+					placeholder="Title"
 					autoFocus
-					className="text-input"
+					className="text-input text-input--wide"
 					value={this.state.title}
-					onChange={this.onDescriptionChange}
+					onChange={this.onTitleChange}
 				/>
-				<textarea
-					placeholder="Add content for your post"
-					className="textarea"
-					value={this.state.content}
-					onChange={this.onNoteChange}
-				>
-				</textarea>
+
+				<h3>Intro</h3>
+				<div className="editor">
+					<div className="editor__input">
+						<textarea
+							placeholder="Add an introduction for your post"
+							className="textarea"
+							value={this.state.intro}
+							onChange={this.onIntroChange}
+						>
+						</textarea>
+					</div>
+					<div className="editor__preview">
+						<div dangerouslySetInnerHTML={{__html: md.render(this.state.intro)}} />
+					</div>
+				</div>
+
+				<h3>Content</h3>
+				<div className="editor">
+					<div className="editor__input">
+						<textarea
+							placeholder="Add content for your post"
+							className="textarea"
+							value={this.state.content}
+							onChange={this.onContentChange}
+						>
+						</textarea>
+					</div>
+					<div className="editor__preview">
+						<div dangerouslySetInnerHTML={{__html: md.render(this.state.content)}} />
+					</div>
+				</div>
+
 				<div>
 					<button className="button">Save Post</button>
 				</div>

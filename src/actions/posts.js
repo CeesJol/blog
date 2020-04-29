@@ -10,11 +10,12 @@ export const startAddPost = (postData = {}) => {
 	return (dispatch, getState) => {
 		const {
 			title = '',
+			intro = '',
 			content = '',
 			createdAt = 0,
 			amount = 0
 		} = postData;
-		const post = { title, content, createdAt, amount };
+		const post = { title, intro, content, createdAt, amount };
 
 		return db.collection('posts').add(post).then((ref) => {
 			dispatch(addPost({

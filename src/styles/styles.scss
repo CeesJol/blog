@@ -13,5 +13,10 @@
 @import './components/input';
 @import './components/footer';
 @import './components/feed-filter';
+@import './components/loading-animation';
 
 @import './responsive/responsive';
+
+.loading-animation {
+  display:table-cell;vertical-align:middle;
+}

@@ -40,10 +40,20 @@ h3 {
 }
 
 a {
+	color: blue;
 	text-decoration: none;
-	color: inherit;
+}
+
+a:hover {
+	text-decoration: underline;
+	text-decoration-color: blue;
 }
 
 p {
 	font-size: 2rem;
+}
+
+.nostyle, .nostyle:hover {
+	text-decoration: none;
+	color: inherit;
 }
