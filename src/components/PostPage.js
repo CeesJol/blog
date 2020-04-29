@@ -31,11 +31,14 @@ export class PostPage extends React.Component {
 		return (
 			<div className="content-container">
 				<h1>{this.state.title}</h1>
-				<i>{this.state.createdAt}</i>
+				<p className="post__date">{this.state.createdAt}</p>
 				{this.state.isAuthenticated && (
 					<p><Link to={`/edit/${this.state.id}`}>Edit this post</Link></p>
 				)}
-				<div dangerouslySetInnerHTML={{__html: md.render(this.state.intro)}} />
+				<div className="text-bigger">
+					<div dangerouslySetInnerHTML={{__html: md.render(this.state.intro)}} />
+				</div>
+				<br></br>
 				<div dangerouslySetInnerHTML={{__html: md.render(this.state.content)}} />
 			</div>
 		)

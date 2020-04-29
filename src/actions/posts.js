@@ -60,7 +60,6 @@ export const setPosts = (posts) => ({
 });
 
 export const startSetPosts = (posts) => {
-	
 	return (dispatch, getState) => {
 		return db.collection('posts')
 			.get().then((snapshot) => {	

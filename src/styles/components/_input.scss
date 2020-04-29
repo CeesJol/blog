@@ -1,6 +1,6 @@
 .editor {
 	width: 100%;
-	background: lightgrey;
+	background: $light-grey;
 	
 	@media (min-width: $desktop-breakpoint) {
 		display: flex;
@@ -39,7 +39,7 @@
 
 // from https://codepen.io/zFunx/pen/XRyqvx
 input[type="text"] {
-  border: 1px solid lightgrey;
+  border: 1px solid $light-grey;
   border-radius: 1rem;
   margin: .8rem 0;
   outline: none;

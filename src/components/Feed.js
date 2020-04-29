@@ -5,15 +5,21 @@ import selectPosts from '../selectors/posts';
 
 export const Feed = (props) => (
 	<div>
-		<div className="list-body">
+		<div className="feed">
 			{
 				props.posts.length === 0 ? (
-					<div className="list-item list-item--message">
+					<div>
 						<span>No posts found</span>
 					</div>
 				) : (
-					props.posts.map((post) => {
-						return <PostPreview key={post.id} {...post} />
+					props.posts.map((post, i) => {
+						return (
+							<PostPreview 
+								className={(i !== props.posts.length - 1) ? "border-bottom" : "x"} 
+								key={post.id} 
+								{...post} 
+							/>
+						);
 					})
 				)
 			}

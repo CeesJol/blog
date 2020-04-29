@@ -14,9 +14,8 @@
 @import './components/footer';
 @import './components/feed-filter';
 @import './components/loading-animation';
+@import './components/feed';
 
 @import './responsive/responsive';
 
-.loading-animation {
-  display:table-cell;vertical-align:middle;
-}
+@import './misc/misc';

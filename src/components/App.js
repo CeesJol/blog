@@ -11,7 +11,6 @@ export const App = ({ startLogin }) => (
 		<div className="content-container">
 			<FeedFilters />
 			<Feed />
-			<p>Whaddup??? /</p>
 		</div>
 	</div>
 );
