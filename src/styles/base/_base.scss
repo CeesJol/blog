@@ -9,7 +9,7 @@ html {
 
 body {
   font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
-	font-size: 1.6rem;
+	font-size: 2rem;
 	color: $dark-grey;
 	line-height: 1.6;
 }
@@ -26,6 +26,24 @@ button:disabled {
   font-weight: bold;
 }
 
+h1,h2,h3,h4,h5,h6 {
+	padding: 0;
+}
+
 h1 {
 	font-size: 6rem;
+	color: rgb(33,24,60);
+}
+
+h3 {
+	color: rgb(33,24,60);
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+p {
+	font-size: 2rem;
 }

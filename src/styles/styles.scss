@@ -1,5 +1,6 @@
 @import './base/settings';
 @import './base/base';
+
 @import './components/button';
 @import './components/header';
 @import './components/content-container';
@@ -7,3 +8,10 @@
 @import './components/visibility';
 @import './components/loader';
 @import './components/splash';
+@import './components/_post-preview';
+@import './components/post';
+@import './components/input';
+@import './components/footer';
+@import './components/feed-filter';
+
+@import './responsive/responsive';

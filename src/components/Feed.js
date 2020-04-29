@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Post from './Post';
+import PostPreview from './PostPreview';
 import selectPosts from '../selectors/posts';
 
 export const Feed = (props) => (
@@ -9,11 +9,11 @@ export const Feed = (props) => (
 			{
 				props.posts.length === 0 ? (
 					<div className="list-item list-item--message">
-						<span>No posts</span>
+						<span>No posts found</span>
 					</div>
 				) : (
 					props.posts.map((post) => {
-						return <Post key={post.id} {...post} />
+						return <PostPreview key={post.id} {...post} />
 					})
 				)
 			}

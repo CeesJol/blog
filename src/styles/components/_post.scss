@@ -1,0 +1,23 @@
+.post {
+	&__date {
+		color: rgb(113,128,150);
+		font-weight: 300;
+		padding-bottom: 1rem;
+	}
+
+
+	
+}
+
+.post-preview {
+	border-bottom: 1px solid lightgrey;
+	padding-bottom: 4rem;
+	margin-bottom: 2rem;
+
+	&:hover {
+		* {
+			color: darken(rgb(108,232, 228), 14%);
+		}
+		
+	}
+}

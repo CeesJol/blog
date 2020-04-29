@@ -9,9 +9,9 @@ export const App = ({ startLogin }) => (
 	<div>
 		<Splash />
 		<div className="content-container">
-			<h1>Latest articles</h1>
 			<FeedFilters />
 			<Feed />
+			<p>Whaddup??? /</p>
 		</div>
 	</div>
 );

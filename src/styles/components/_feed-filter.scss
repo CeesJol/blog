@@ -1,0 +1,10 @@
+.feed-filter {
+	
+	
+
+	@media (min-width: $desktop-breakpoint) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}

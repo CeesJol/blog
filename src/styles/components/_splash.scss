@@ -2,8 +2,9 @@
 	position: relative;
 	width: 100%;
 	height: 100vh;
+	max-height: 100vw;
+	min-height: 50rem;
 	background-color: rgb(34, 34, 71);
-	color: white;
 	text-transform: uppercase;
 
 	// * {
@@ -16,6 +17,11 @@
 		
   	&--content {
 			padding: 2rem;
+
+			h1 {
+				color: white;
+			}
+			color: white;
 		}
 	}
 
@@ -27,52 +33,15 @@
 
 		&--content {
 			bottom: 0 !important;
-			max-width: 80rem;
+			max-width: $max-size;
 			margin: 0 auto;
 			width: 100%;
 		}
 	}
 
-	&__body {
-		background-color: rgb(17, 22, 37);
-
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-top;
-
-		height: 40%;
-
-		.fade {
-			color: rgb(17, 22, 37);
-			margin: 0 auto;
-			max-width: 80rem;
-		}
-
-		.fade--slogan {
-			background-color: rgb(108,232, 228);
-			margin: 0;
-			padding: 0;
-			color: inherit;
-			padding-left: 1rem;
-
-			background: rgb(108,232, 228);
-			background: linear-gradient(90deg, rgb(108,232, 228) 0%, rgba(30,60,100,0) 100%);
-		}
-
-		.fade--title {
-			font-weight: 400;
-			font-size: 5rem;
-			margin: 0;
-			padding: 0;
-
-			color: rgb(108,232, 228);
-		}
-	}
-
-	&__title {
+	.splash__title {
 		font-size: 10rem;
 		margin: 0;
-		padding: 0;
 		line-height: 10rem;
 		font-weight: 300;
 
@@ -82,6 +51,32 @@
 
 		&--sub {
 			font-size: 9rem;
+		}
+	}
+
+	&__body {
+		background-color: rgb(17, 22, 37);
+		height: 40%;
+
+		&--content {
+			color: rgb(17, 22, 37);
+			margin: 0 auto;
+			max-width: $max-size;
+		}
+
+		.fade--slogan {
+			margin: 0;
+			padding-left: 1rem;
+			color: inherit;
+			background: rgb(108,232, 228);
+			background: linear-gradient(90deg, rgb(108,232, 228) 0%, rgba(30,60,100,0) 100%);
+		}
+
+		.fade--title {
+			font-weight: 400;
+			font-size: 5rem;
+			margin: 0;
+			color: rgb(108,232, 228);
 		}
 	}
 }
