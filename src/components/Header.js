@@ -12,7 +12,7 @@ export const Header = ({ headerStyle, isAuthenticated, startLogout }) => (
 		<div className="content-container">
 			<div className="header__content">
 				<Link className="header__title nostyle" to="/">
-					Cees Jol
+					Cees Jol {process.env.NODE_ENV === 'development' && ' - Dev'}
 				</Link>
 				{isAuthenticated && (
 					<button className="button button--link" onClick={startLogout}>Logout</button>
