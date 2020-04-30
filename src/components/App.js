@@ -16,7 +16,7 @@ export const App = ({ startLogin }) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  startLogin: () => dispatch(startLogin())
+	startLogin: () => dispatch(startLogin())
 });
 
 export default connect(undefined, mapDispatchToProps)(App);

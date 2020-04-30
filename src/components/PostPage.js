@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import TagEntity from './TagEntity';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startEditPost } from '../actions/posts';
@@ -16,6 +17,7 @@ export class PostPage extends React.Component {
 			intro: props.post ? props.post.intro : '',
 			content: props.post ? props.post.content : '',
 			createdAt: props.post ? moment(props.post.amountcreatedAt).format('MMMM Do, YYYY') : moment(),
+			tags: props.post ? props.post.tags : '',
 			amount: props.post ? props.post.amount : 0,
 			error: '',
 			isAuthenticated: props.isAuthenticated ? true : false
@@ -35,6 +37,11 @@ export class PostPage extends React.Component {
 				{this.state.isAuthenticated && (
 					<p><Link to={`/edit/${this.state.id}`}>Edit this post</Link></p>
 				)}
+				{this.state.tags && this.state.tags.split(", ").map((tag) => {
+					return (
+						<TagEntity tag={tag} />
+					)
+				})}
 				<div className="text-bigger">
 					<div dangerouslySetInnerHTML={{__html: md.render(this.state.intro)}} />
 				</div>

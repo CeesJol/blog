@@ -12,6 +12,7 @@ export default class PostForm extends React.Component {
 			intro: props.post ? props.post.intro : '',
 			content: props.post ? props.post.content : '',
 			createdAt: props.post ? moment(props.post.createdAt) : moment(),
+			tags: props.post ? props.post.tags : '',
 			amount: 0,
 			error: ''
 		};
@@ -23,6 +24,10 @@ export default class PostForm extends React.Component {
 	onIntroChange = (e) => {
 		const intro = e.target.value;
 		this.setState(() => ({ intro }));
+	};
+	onTagsChange = (e) => {
+		const tags = e.target.value;
+		this.setState(() => ({ tags }));
 	};
 	onContentChange = (e) => {
 		const content = e.target.value;
@@ -40,6 +45,7 @@ export default class PostForm extends React.Component {
 				intro: this.state.intro,
 				content: this.state.content,
 				createdAt: this.state.createdAt.valueOf(),
+				tags: this.state.tags,
 				amount: 0
 			});
 		}
@@ -58,6 +64,16 @@ export default class PostForm extends React.Component {
 					onChange={this.onTitleChange}
 				/>
 
+				<h3>Tags</h3>
+				<input
+					type="text"
+					placeholder="Tags"
+					autoFocus
+					className="text-input text-input--wide"
+					value={this.state.tags}
+					onChange={this.onTagsChange}
+				/>
+
 				<h3>Intro</h3>
 				<div className="editor">
 					<div className="editor__input">
@@ -70,7 +86,7 @@ export default class PostForm extends React.Component {
 						</textarea>
 					</div>
 					<div className="editor__preview">
-						<div dangerouslySetInnerHTML={{__html: md.render(this.state.intro)}} />
+						<div dangerouslySetInnerHTML={{ __html: md.render(this.state.intro) }} />
 					</div>
 				</div>
 
@@ -86,7 +102,7 @@ export default class PostForm extends React.Component {
 						</textarea>
 					</div>
 					<div className="editor__preview">
-						<div dangerouslySetInnerHTML={{__html: md.render(this.state.content)}} />
+						<div dangerouslySetInnerHTML={{ __html: md.render(this.state.content) }} />
 					</div>
 				</div>
 

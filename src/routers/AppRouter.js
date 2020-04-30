@@ -10,6 +10,7 @@ import AddPostPage from '../components/AddPostPage';
 import EditPostPage from '../components/EditPostPage';
 import PostPage from '../components/PostPage';
 import LoginPage from '../components/LoginPage';
+import TagPage from '../components/TagPage';
 import Head from '../components/Head';
 
 export const history = createHistory();
@@ -26,6 +27,7 @@ const AppRouter = () => (
 				<Switch>
 					<PublicRoute path="/" component={App} exact={true} headerStyle={'transparent'} />
 					<PublicRoute path="/post/:id" component={PostPage} />
+					<PublicRoute path="/tag/:name" component={TagPage} />
 					<PublicRoute path="/login" component={LoginPage} />
 					<PrivateRoute path="/dashboard" component={DashboardPage} />
 					<PrivateRoute path="/create" component={AddPostPage} />

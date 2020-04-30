@@ -1,22 +1,21 @@
 .post {
 	&__date {
-		color: rgb(113,128,150);
+		color: $grey;
 		font-weight: 300;
-		padding-bottom: 1rem;
 	}
 }
 
 .post-preview {
-	padding-bottom: 4rem;
+	padding-bottom: 3rem;
 	margin-bottom: 2rem;
 
 	h3 {
 		font-size: 3rem;
 	}
 
-	&:hover {
-		* {
-			color: darken(rgb(108,232, 228), 14%);
-		}	
+	&__content {
+		&:hover > * {
+			color: darken($light-blue, 14%);
+		}
 	}
 }

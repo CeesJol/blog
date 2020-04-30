@@ -32,7 +32,7 @@
 		height: 60%;
 
 		&--content {
-			bottom: 0 !important;
+			bottom: 0;
 			max-width: $max-size;
 			margin: 0 auto;
 			width: 100%;
@@ -68,15 +68,15 @@
 			margin: 0;
 			padding-left: 1rem;
 			color: inherit;
-			background: rgb(108,232, 228);
-			background: linear-gradient(90deg, rgb(108,232, 228) 0%, rgba(30,60,100,0) 100%);
+			background: $light-blue;
+			background: linear-gradient(90deg, $light-blue 0%, rgba(30,60,100,0) 100%);
 		}
 
 		.fade--title {
 			font-weight: 400;
 			font-size: 5rem;
 			margin: 0;
-			color: rgb(108,232, 228);
+			color: $light-blue;
 		}
 	}
 }

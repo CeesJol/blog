@@ -11,7 +11,7 @@ export class PostListFilters extends React.Component {
 			<div>
 				<div className="feed-filter">
 					<div>
-						<h1>Latest articles</h1>
+						<h1>{this.props.tag ? 'TAG: ' + this.props.tag : 'Latest articles'}</h1>
 					</div>
 					<div>
 						<div className="inputWithIcon">
