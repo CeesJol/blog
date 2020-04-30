@@ -45,7 +45,7 @@ export default class PostForm extends React.Component {
 				intro: this.state.intro,
 				content: this.state.content,
 				createdAt: this.state.createdAt.valueOf(),
-				tags: this.state.tags,
+				tags: this.state.tags.split(','),
 				amount: 0
 			});
 		}

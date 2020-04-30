@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
 export const Header = ({ headerStyle, isAuthenticated, startLogout }) => (
-	<header className={headerStyle && headerStyle == 'transparent' ? (
+	<header className={headerStyle && headerStyle === 'transparent' ? (
 		"header header-transparent") : (
 			"header"
 		)}>

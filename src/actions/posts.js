@@ -48,7 +48,6 @@ export const editPost = (id, updates) => ({
 
 export const startEditPost = (id, updates) => {
 	return (dispatch, getState) => {
-		console.log('EDIT.', id, updates);
 		return db.collection('posts').doc(id).update(updates).then(() => {
 			dispatch(editPost(id, updates));
 		});
@@ -68,9 +67,10 @@ export const startSetPosts = (posts) => {
 			const posts = [];
 
 			snapshot.forEach((childSnapshot) => {
+				const data = childSnapshot.data();
 				posts.push({
 					id: childSnapshot.id,
-					...childSnapshot.data()
+					...data
 				});
 			});
 

@@ -23,12 +23,6 @@ export class PostPage extends React.Component {
 			isAuthenticated: props.isAuthenticated ? true : false
 		};
 	}
-	// componentDidMount() {
-	// 	this.props.startEditPost(this.state.id, {
-	// 		amount: this.state.amount + 1
-	// 	})
-	// 	console.log(this.state.amount);
-	// }
 	render() {
 		return (
 			<div className="content-container">
@@ -37,9 +31,9 @@ export class PostPage extends React.Component {
 				{this.state.isAuthenticated && (
 					<p><Link to={`/edit/${this.state.id}`}>Edit this post</Link></p>
 				)}
-				{this.state.tags && this.state.tags.split(", ").map((tag) => {
+				{this.state.tags && this.state.tags.map((tag) => {
 					return (
-						<TagEntity tag={tag} />
+						<TagEntity key={tag} tag={tag} />
 					)
 				})}
 				<div className="text-bigger">

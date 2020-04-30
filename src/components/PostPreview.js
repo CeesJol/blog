@@ -6,7 +6,7 @@ import MarkdownIt from 'markdown-it';
 const md = new MarkdownIt();
 var truncate = require('truncate');
 
-const PostPreview = ({ className, id, title, intro, content, img, createdAt, tags, amount }) => {
+const PostPreview = ({ className, id, title, intro, createdAt, tags }) => {
 	return (
 		<div className={"post-preview " + className}>
 			<Link className="nostyle" to={`/post/${id}`}>
@@ -16,9 +16,9 @@ const PostPreview = ({ className, id, title, intro, content, img, createdAt, tag
 					<div dangerouslySetInnerHTML={{__html: truncate(md.render(intro), 300)}} />
 				</div>
 			</Link>
-			{tags && tags.split(", ").map((tag) => {
+			{tags && tags.map((tag) => {
 				return (
-					<TagEntity tag={tag} />
+					<TagEntity key={tag} tag={tag} />
 				)
 			})}
 		</div>

@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 export default (posts, { text, sortBy }) => {
 	return posts.filter((post) => {
 		const searchWords = text.split(" ");

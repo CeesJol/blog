@@ -55,11 +55,11 @@
 	}
 
 	&__body {
-		background-color: rgb(17, 22, 37);
+		background-color: $navy-blue;
 		height: 40%;
 
 		&--content {
-			color: rgb(17, 22, 37);
+			color: $navy-blue;
 			margin: 0 auto;
 			max-width: $max-size;
 		}
@@ -69,7 +69,11 @@
 			padding-left: 1rem;
 			color: inherit;
 			background: $light-blue;
-			background: linear-gradient(90deg, $light-blue 0%, rgba(30,60,100,0) 100%);
+			background: 
+				linear-gradient(90deg, 
+					$light-blue 0%, 
+					rgba($navy-blue,0) 100%
+				);
 		}
 
 		.fade--title {
