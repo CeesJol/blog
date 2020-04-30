@@ -12,7 +12,7 @@ export default class PostForm extends React.Component {
 			intro: props.post ? props.post.intro : '',
 			content: props.post ? props.post.content : '',
 			createdAt: props.post ? moment(props.post.createdAt) : moment(),
-			tags: props.post ? props.post.tags : '',
+			tags: props.post ? props.post.tags.toString() : '',
 			amount: 0,
 			error: ''
 		};
@@ -45,7 +45,7 @@ export default class PostForm extends React.Component {
 				intro: this.state.intro,
 				content: this.state.content,
 				createdAt: this.state.createdAt.valueOf(),
-				tags: this.state.tags.split(','),
+				tags: this.state.tags ? this.state.tags.split(',') : [],
 				amount: 0
 			});
 		}
