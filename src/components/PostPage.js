@@ -12,7 +12,7 @@ export class PostPage extends React.Component {
 		super(props);
 
 		this.state = {
-			id: props.post.id ? props.post.id : '',
+			id: props.post ? props.post.id : '',
 			title: props.post ? props.post.title : '',
 			intro: props.post ? props.post.intro : '',
 			content: props.post ? props.post.content : '',

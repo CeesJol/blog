@@ -10,7 +10,7 @@ export default (posts, { text, sortBy }) => {
 
 		return false;
 		// return true;
-	}).sort((a, b) => {
-		return a.createdAt < b.createdAt ? 1 : -1;
-	});
+	})//.sort((a, b) => {
+	// 	return a.createdAt < b.createdAt ? 1 : -1;
+	// });
 };

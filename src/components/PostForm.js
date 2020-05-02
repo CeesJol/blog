@@ -68,7 +68,6 @@ export default class PostForm extends React.Component {
 				<input
 					type="text"
 					placeholder="Tags"
-					autoFocus
 					className="text-input text-input--wide"
 					value={this.state.tags}
 					onChange={this.onTagsChange}

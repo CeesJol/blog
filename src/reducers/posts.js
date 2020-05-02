@@ -20,7 +20,12 @@ export default (state = postsReducerDefaultState, action) => {
 					return post;
 				}
 			});
+		case 'RESET_POSTS':
+			return [];
+		case 'SET_POST':
+			return action.posts;
 		case 'SET_POSTS':
+			if (state) return [...state, ...action.posts];
 			return action.posts;
 		default:
 			return state;

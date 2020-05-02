@@ -2,9 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PostPreview from './PostPreview';
 import selectPosts from '../selectors/posts';
+import { startSetPosts } from '../actions/posts';
 
 export const Feed = (props) => {
 	const posts = props.tag ? props.posts.filter((post) => post.tags.includes(props.tag)) : props.posts;
+	// Load first batch of posts of no posts available
+	if (posts.length === 0) props.startSetPosts(props.tag);
 	return (
 		<div>
 			<div className="feed">
@@ -30,10 +33,12 @@ export const Feed = (props) => {
 	);
 };
 
-const mapStateToProps = (state) => {
-	return {
-		posts: selectPosts(state.posts, state.filters)
-	};
-};
+const mapStateToProps = (state) => ({
+	posts: selectPosts(state.posts, state.filters),
+});
 
-export default connect(mapStateToProps)(Feed);
+const mapDispatchToProps = (dispatch) => ({
+	startSetPosts: (tag) => dispatch(startSetPosts(tag))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feed);
