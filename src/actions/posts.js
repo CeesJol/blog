@@ -1,6 +1,6 @@
 
 import db from '../firebase/firebase';
-const POST_NUMBER = 1; // Number of posts loaded on each request
+const POST_NUMBER =2; // Number of posts loaded on each request
 
 export const addPost = (post) => ({
 	type: 'ADD_POST',
@@ -76,9 +76,9 @@ export const setPosts = (posts) => ({
 	posts
 });
 
-export const setPost = (post) => ({
-	type: 'SET_POSTS',
-	post
+export const setPost = (posts) => ({
+	type: 'SET_POST',
+	posts
 });
 
 let batch;
@@ -103,6 +103,7 @@ export const startSetPosts = (tag) => {
 			// Get the last visible document
 			var lastVisible = snapshot.docs[snapshot.docs.length-1];
 			if (!lastVisible) {
+				console.log('no more posts!');
 				noMorePosts = true;
 				done = true;
 				return false;
@@ -116,6 +117,11 @@ export const startSetPosts = (tag) => {
 					...data
 				});
 			});
+
+			if (posts.length < POST_NUMBER) {
+				console.log('reached all posts!');
+				noMorePosts = true;
+			}
 
 			dispatch(setPosts(posts));
 
@@ -144,12 +150,15 @@ export const startSetPost = (id) => {
 		
 		return query.get().then((doc) => {
 			const data = doc.data();
+
 			var post = {
 				id: doc.id,
 				...data
 			};
 
-			dispatch(setPosts([post]));
+			console.log('asdf', post);
+
+			dispatch(setPost([post]));
 
 			return query;
 		});

@@ -46,12 +46,10 @@ export class PostPage extends React.Component {
 	}
 };
 
-const mapStateToProps = (state, props) => {
-	return {
-		isAuthenticated: !!state.auth.uid,
-		post: state.posts.find((post) => post.id === props.match.params.id)
-	};
-};
+const mapStateToProps = (state, props) => ({
+	isAuthenticated: !!state.auth.uid,
+	post: state.posts.find((post) => post.id === props.match.params.id)
+});
 
 const mapDispatchToProps = (dispatch, props) => ({
 	startEditPost: (id, post) => dispatch(startEditPost(id, post))
