@@ -10,6 +10,7 @@ export const Feed = (props) => {
 	if (posts.length === 0) props.startSetPosts(props.tag);
 	return (
 		<div>
+			{console.log('posts', posts)}
 			<div className="feed">
 				{
 					posts.length === 0 ? (

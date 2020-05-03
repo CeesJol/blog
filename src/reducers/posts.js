@@ -23,8 +23,10 @@ export default (state = postsReducerDefaultState, action) => {
 		case 'RESET_POSTS':
 			return [];
 		case 'SET_POST':
+			console.log('set post')
 			return action.posts;
 		case 'SET_POSTS':
+			console.log('set posts')
 			if (state) return [...state, ...action.posts];
 			return action.posts;
 		default:

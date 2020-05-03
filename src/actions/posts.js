@@ -60,13 +60,14 @@ export const resetPosts = () => ({
 	type: 'RESET_POSTS'
 })
 
-export const startResetPosts = () => {
+export const startResetPosts = (tag) => {
 	return (dispatch) => {
 		batch = undefined;
 		noMorePosts = false;
+		done = true;
 		dispatch(resetPosts());
 		
-		startSetPosts();
+		startSetPosts(tag);
 	}
 }
 
@@ -103,6 +104,7 @@ export const startSetPosts = (tag) => {
 			var lastVisible = snapshot.docs[snapshot.docs.length-1];
 			if (!lastVisible) {
 				noMorePosts = true;
+				done = true;
 				return false;
 			}
 				

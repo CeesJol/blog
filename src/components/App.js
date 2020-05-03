@@ -29,8 +29,9 @@ export class App extends React.Component {
 	}
 	componentDidMount() {
 		if (url !== window.location.pathname) {
+			console.log('posts reset + set');
 			url = window.location.pathname;
-			this.props.startResetPosts();
+			this.props.startResetPosts(this.state.tag);
 		}
 		window.addEventListener("scroll", this.handleScroll);
 	}
