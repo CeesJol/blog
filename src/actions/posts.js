@@ -125,21 +125,18 @@ export const startSetPosts = (tag) => {
 
 			dispatch(setPosts(posts));
 
-			// if (tag) {
-			// 	batch = db.collection('posts')
-			// 	.orderBy('createdAt', 'desc')
-			// 	.where('tags', 'array-contains', tag);
-			// } else {
-				// Construct a new query starting at this document,
-				// get a batch of the next n posts.
-				batch = db.collection('posts')
-				.orderBy('createdAt', 'desc')
-				.startAfter(lastVisible)
-				.limit(POST_NUMBER);
-			// }
+			// Construct a new query starting at this document,
+			// get a batch of the next n posts.
+			batch = db.collection('posts')
+			.orderBy('createdAt', 'desc')
+			.startAfter(lastVisible)
+			.limit(POST_NUMBER);
+
+			if (tag) {
+				batch = batch.where('tags', 'array-contains', tag);
+			}
 
 			done = true;
-			return batch;
 		});
 	}		
 }
@@ -159,8 +156,6 @@ export const startSetPost = (id) => {
 			console.log('asdf', post);
 
 			dispatch(setPost([post]));
-
-			return query;
 		});
 	}		
 }

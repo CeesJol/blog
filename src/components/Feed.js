@@ -21,7 +21,7 @@ export const Feed = (props) => {
 						posts.map((post, i) => {
 							return (
 								<PostPreview 
-									className={(i !== posts.length - 1) ? "border-bottom" : "x"} 
+									className={(i !== posts.length - 1) && 'border-bottom'}
 									key={post.id} 
 									{...post} 
 								/>
