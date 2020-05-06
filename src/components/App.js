@@ -40,13 +40,13 @@ export class App extends React.Component {
 	}
 	render() {
 		return (
-			<div className="test">
+			<>
 				{history.location.pathname === '/' && <Splash />}
 				<div className="content-container">
 					<FeedFilters tag={this.state.tag} />
 					<Feed tag={this.state.tag} />
 				</div>
-			</div>
+			</>
 		);
 	}
 }

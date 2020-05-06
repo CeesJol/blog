@@ -21,25 +21,37 @@ export class PostPage extends React.Component {
 			error: '',
 			isAuthenticated: props.isAuthenticated ? true : false
 		};
+
+		console.log(props.post);
 	}
 	render() {
 		return (
 			<div className="content-container">
-				<h1>{this.state.title}</h1>
-				<p className="post__date">{this.state.createdAt}</p>
-				{this.state.isAuthenticated && (
-					<p><Link to={`/edit/${this.state.id}`}>Edit this post</Link></p>
+				{this.state.title ? (
+					<>
+						<h1>{this.state.title}</h1>
+						<p className="post__date">{this.state.createdAt}</p>
+						{this.state.isAuthenticated && (
+							<p><Link to={`/edit/${this.state.id}`}>Edit this post</Link></p>
+						)}
+						{this.state.tags && this.state.tags.map((tag) => {
+							return (
+								<TagEntity key={tag} tag={tag} />
+							)
+						})}
+						<div className="text-bigger">
+							<Markdown value={this.state.intro} />
+						</div>
+						<br></br>
+						<Markdown value={this.state.content} />
+					</>
+				) : (
+					<>
+						<h1>Post not found</h1>
+						<p>Couldn't find that post.</p>
+						<Link to="/">Go home</Link>
+					</>
 				)}
-				{this.state.tags && this.state.tags.map((tag) => {
-					return (
-						<TagEntity key={tag} tag={tag} />
-					)
-				})}
-				<div className="text-bigger">
-					<Markdown value={this.state.intro} />
-				</div>
-				<br></br>
-				<Markdown value={this.state.content} />
 			</div>
 		)
 	}

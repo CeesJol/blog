@@ -9,14 +9,14 @@ export const Feed = (props) => {
 	// Load first batch of posts of no posts available
 	if (posts.length === 0) props.startSetPosts(props.tag);
 	return (
-		<div>
+		<>
 			{console.log('posts', posts)}
 			<div className="feed">
 				{
 					posts.length === 0 ? (
-						<div>
+						<>
 							<span>No posts found</span>
-						</div>
+						</>
 					) : (
 						posts.map((post, i) => {
 							return (
@@ -30,7 +30,7 @@ export const Feed = (props) => {
 					)
 				}
 			</div>
-		</div>
+		</>
 	);
 };
 

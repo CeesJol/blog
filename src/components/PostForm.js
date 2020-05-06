@@ -103,10 +103,7 @@ export default class PostForm extends React.Component {
 						<Markdown value={this.state.content} />
 					</div>
 				</div>
-
-				<div>
-					<button className="button">Save Post</button>
-				</div>
+				<button className="button">Save Post</button>
 			</form>
 		)
 	}

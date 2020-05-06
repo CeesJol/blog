@@ -10,7 +10,7 @@ export class AddPostPage extends React.Component {
 	};
 	render() {
 		return (
-			<div>
+			<>
 				<div className="page-header">
 					<div className="content-container">
 						<h1 className="page-header__title">Add Post</h1>
@@ -22,7 +22,7 @@ export class AddPostPage extends React.Component {
 						onSubmit={this.onSubmit}
 					/>
 				</div>
-			</div>
+			</>
 		);
 	}
 }

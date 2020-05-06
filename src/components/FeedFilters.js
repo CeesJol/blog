@@ -8,23 +8,17 @@ export class PostListFilters extends React.Component {
 	};
 	render() {
 		return (
-			<div>
-				<div className="feed-filter">
-					<div>
-						<h1>{this.props.tag ? 'TAG: ' + this.props.tag : 'Latest posts'}</h1>
-					</div>
-					<div>
-						<div className="inputWithIcon">
-							<input
-								type="text"
-								className="text-input"
-								placeholder="Search posts"
-								value={this.props.filters.text}
-								onChange={this.onTextChange}
-							/>
-							<i className="fas fa-search text-input--icon" aria-hidden="true"></i>
-						</div>
-					</div>
+			<div className="feed-filter">
+				<h1>{this.props.tag ? 'TAG: ' + this.props.tag : 'Latest posts'}</h1>
+				<div className="inputWithIcon">
+					<input
+						type="text"
+						className="text-input"
+						placeholder="Search posts"
+						value={this.props.filters.text}
+						onChange={this.onTextChange}
+					/>
+					<i className="fas fa-search text-input--icon" aria-hidden="true"></i>
 				</div>
 			</div>
 		);

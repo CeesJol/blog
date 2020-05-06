@@ -11,11 +11,11 @@ export const PublicRoute = ({
 	...rest
 }) => (
 	<Route {...rest} component={(props) => (
-		<div>
+		<>
 			<Header headerStyle={headerStyle} />
 			<Component {...props} />
 			<Footer />
-		</div>
+		</>
 	)} />
 );
 

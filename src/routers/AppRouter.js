@@ -22,18 +22,16 @@ const AppRouter = () => (
 	<>
 		<Head />
 		<Router history={history}>
-			<div>
-				<Switch>
-					<PublicRoute path="/" component={App} exact={true} headerStyle={'transparent'} />
-					<PublicRoute path="/post/:id" component={PostPage} />
-					<PublicRoute path="/tag/:name" component={App} />
-					<PublicRoute path="/login" component={LoginPage} />
-					<PrivateRoute path="/dashboard" component={DashboardPage} />
-					<PrivateRoute path="/create" component={AddPostPage} />
-					<PrivateRoute path="/edit/:id" component={EditPostPage} />
-					<PublicRoute component={NotFoundPage} />
-				</Switch>
-			</div>
+			<Switch>
+				<PublicRoute path="/" component={App} exact={true} headerStyle={'transparent'} />
+				<PublicRoute path="/post/:id" component={PostPage} />
+				<PublicRoute path="/tag/:name" component={App} />
+				<PublicRoute path="/login" component={LoginPage} />
+				<PrivateRoute path="/dashboard" component={DashboardPage} />
+				<PrivateRoute path="/create" component={AddPostPage} />
+				<PrivateRoute path="/edit/:id" component={EditPostPage} />
+				<PublicRoute component={NotFoundPage} />
+			</Switch>
 		</Router>
 	</>
 );
