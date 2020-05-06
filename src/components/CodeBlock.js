@@ -7,7 +7,7 @@ const React = require('react')
 const PropTypes = require('prop-types')
 var hljs = require('highlight.js');
 
-class CodeBlock extends React.PureComponent {
+export default class CodeBlock extends React.PureComponent {
   constructor(props) {
     super(props)
     this.setRef = this.setRef.bind(this)
@@ -32,7 +32,7 @@ class CodeBlock extends React.PureComponent {
   render() {
     return (
       <pre>
-        <code ref={this.setRef} className={`language-${this.props.language}`}>
+        <code ref={this.setRef} className={`language-${this.props.language || 'js'}`}>
           {this.props.value}
         </code>
       </pre>
@@ -48,5 +48,3 @@ CodeBlock.propTypes = {
   value: PropTypes.string.isRequired,
   language: PropTypes.string
 }
-
-module.exports = CodeBlock
