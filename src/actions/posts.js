@@ -60,14 +60,18 @@ export const resetPosts = () => ({
 	type: 'RESET_POSTS'
 })
 
-export const startResetPosts = (tag) => {
+export const startResetPosts = (tag, id) => {
 	return (dispatch) => {
 		batch = undefined;
 		noMorePosts = false;
 		done = true;
 		dispatch(resetPosts());
 		
-		startSetPosts(tag);
+		if (id) {
+			startSetPost(id);
+		} else {
+			startSetPosts(tag);
+		}
 	}
 }
 

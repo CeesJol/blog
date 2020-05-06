@@ -4,8 +4,7 @@ import TagEntity from './TagEntity';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startEditPost } from '../actions/posts';
-import MarkdownIt from 'markdown-it';
-const md = new MarkdownIt();
+import Markdown from './Markdown';
 
 export class PostPage extends React.Component {
 	constructor(props) {
@@ -37,10 +36,10 @@ export class PostPage extends React.Component {
 					)
 				})}
 				<div className="text-bigger">
-					<div dangerouslySetInnerHTML={{__html: md.render(this.state.intro)}} />
+					<Markdown value={this.state.intro} />
 				</div>
 				<br></br>
-				<div dangerouslySetInnerHTML={{__html: md.render(this.state.content)}} />
+				<Markdown value={this.state.content} />
 			</div>
 		)
 	}

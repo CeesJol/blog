@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import TagEntity from './TagEntity';
-import MarkdownIt from 'markdown-it';
-const md = new MarkdownIt();
+import Markdown from './Markdown';
 var truncate = require('truncate');
 
 const PostPreview = ({ className, id, title, intro, createdAt, tags }) => {
@@ -13,7 +12,7 @@ const PostPreview = ({ className, id, title, intro, createdAt, tags }) => {
 				<div className="post-preview__content">
 					<h3>{title}</h3>
 					<p className="post__date">{moment(createdAt).format('MMMM Do, YYYY')}</p>
-					<div dangerouslySetInnerHTML={{__html: truncate(md.render(intro), 300)}} />
+					<Markdown value={truncate(intro)} />
 				</div>
 			</Link>
 			{tags && tags.map((tag) => {
