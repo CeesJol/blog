@@ -6,7 +6,7 @@ const Splash = () => (
 			<div className="splash__head--content">
 				<h1 className="splash__title splash__title--bold">
 					C
-					<span role="img" aria-label="o">☕</span>
+					<span id="coffee" role="img" aria-label="o">☕</span>
 					ffee &amp;
 				</h1>
 				<h2 className="splash__title splash__title--sub">Coding</h2>
