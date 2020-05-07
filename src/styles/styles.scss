@@ -8,7 +8,6 @@
 @import './components/visibility';
 @import './components/loader';
 @import './components/splash';
-@import './components/_post-preview';
 @import './components/post';
 @import './components/input';
 @import './components/footer';
@@ -20,3 +19,4 @@
 @import './responsive/responsive';
 
 @import './misc/misc';
+@import './misc/code-syntax-override'

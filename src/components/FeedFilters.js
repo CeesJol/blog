@@ -18,7 +18,8 @@ export class PostListFilters extends React.Component {
 						value={this.props.filters.text}
 						onChange={this.onTextChange}
 					/>
-					<i className="fas fa-search text-input--icon" aria-hidden="true"></i>
+					<img src="/resources/search.svg" alt="search"></img>
+					{/* <div>Icons made by <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons">Those Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */}
 				</div>
 			</div>
 		);
