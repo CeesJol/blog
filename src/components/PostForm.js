@@ -1,7 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import MarkdownIt from 'markdown-it';
-const md = new MarkdownIt();
+import Markdown from './Markdown';
 
 export default class PostForm extends React.Component {
 	constructor(props) {
@@ -68,7 +67,6 @@ export default class PostForm extends React.Component {
 				<input
 					type="text"
 					placeholder="Tags"
-					autoFocus
 					className="text-input text-input--wide"
 					value={this.state.tags}
 					onChange={this.onTagsChange}
@@ -86,7 +84,7 @@ export default class PostForm extends React.Component {
 						</textarea>
 					</div>
 					<div className="editor__preview">
-						<div dangerouslySetInnerHTML={{ __html: md.render(this.state.intro) }} />
+					<Markdown value={this.state.intro} />
 					</div>
 				</div>
 
@@ -102,13 +100,10 @@ export default class PostForm extends React.Component {
 						</textarea>
 					</div>
 					<div className="editor__preview">
-						<div dangerouslySetInnerHTML={{ __html: md.render(this.state.content) }} />
+						<Markdown value={this.state.content} />
 					</div>
 				</div>
-
-				<div>
-					<button className="button">Save Post</button>
-				</div>
+				<button className="button">Save Post</button>
 			</form>
 		)
 	}

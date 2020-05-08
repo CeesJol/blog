@@ -10,7 +10,6 @@ import AddPostPage from '../components/AddPostPage';
 import EditPostPage from '../components/EditPostPage';
 import PostPage from '../components/PostPage';
 import LoginPage from '../components/LoginPage';
-import TagPage from '../components/TagPage';
 import Head from '../components/Head';
 
 export const history = createHistory();
@@ -23,18 +22,16 @@ const AppRouter = () => (
 	<>
 		<Head />
 		<Router history={history}>
-			<div>
-				<Switch>
-					<PublicRoute path="/" component={App} exact={true} headerStyle={'transparent'} />
-					<PublicRoute path="/post/:id" component={PostPage} />
-					<PublicRoute path="/tag/:name" component={TagPage} />
-					<PublicRoute path="/login" component={LoginPage} />
-					<PrivateRoute path="/dashboard" component={DashboardPage} />
-					<PrivateRoute path="/create" component={AddPostPage} />
-					<PrivateRoute path="/edit/:id" component={EditPostPage} />
-					<Route component={NotFoundPage} />
-				</Switch>
-			</div>
+			<Switch>
+				<PublicRoute path="/" component={App} exact={true} headerStyle={'transparent'} />
+				<PublicRoute path="/post/:id" component={PostPage} />
+				<PublicRoute path="/tag/:name" component={App} />
+				<PublicRoute path="/login" component={LoginPage} />
+				<PrivateRoute path="/dashboard" component={DashboardPage} />
+				<PrivateRoute path="/create" component={AddPostPage} />
+				<PrivateRoute path="/edit/:id" component={EditPostPage} />
+				<PublicRoute component={NotFoundPage} />
+			</Switch>
 		</Router>
 	</>
 );

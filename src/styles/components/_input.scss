@@ -62,7 +62,7 @@ input[type="text"]:focus {
   position: relative;
 }
 
-.inputWithIcon i {
+.inputWithIcon img {
   position: absolute;
   left: 0;
   top: .8rem;
@@ -70,20 +70,23 @@ input[type="text"]:focus {
   color: #aaa;
 	transition: 0.3s;
 	font-size: 2.4rem;
+	pointer-events: none;
+	width: 4.5rem;
+	height: 4.5rem;
 }
 
-.inputWithIcon input[type="text"]:focus + i {
+.inputWithIcon input[type="text"]:focus + img {
   color: dodgerBlue;
 }
 
-.inputWithIcon.inputIconBg i {
+.inputWithIcon.inputIconBg img {
   background-color: #aaa;
   color: #fff;
   padding: .9rem .4rem;
   border-radius: .4rem 0 0 .4rem;
 }
 
-.inputWithIcon.inputIconBg input[type="text"]:focus + i {
+.inputWithIcon.inputIconBg input[type="text"]:focus + img {
   color: #fff;
   background-color: dodgerBlue;
 }

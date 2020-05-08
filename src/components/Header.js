@@ -4,29 +4,34 @@ import { connect } from 'react-redux';
 import { startLogout } from '../actions/auth';
 
 export const Header = ({ headerStyle, isAuthenticated, startLogout }) => (
-	<header className={headerStyle && headerStyle === 'transparent' ? (
-		"header header-transparent") : (
-			"header"
-		)}>
-
+	<header 
+		className={
+			headerStyle && headerStyle === 'transparent' ? (
+				"header header-transparent"
+			) : ("header")
+		}
+	>
 		<div className="content-container">
 			<div className="header__content">
 				<Link className="header__title nostyle" to="/">
-					Cees Jol
+					Cees Jol {process.env.NODE_ENV !== 'production' && ' - Dev'}
 				</Link>
 				{isAuthenticated && (
-					<button className="button button--link" onClick={startLogout}>Logout</button>
+					<div>
+						<Link className="button button--link nostyle" to="/dashboard">
+							Dashboard
+						</Link>
+						<button className="button button--link" onClick={startLogout}>Logout</button>
+					</div>
 				)}
 			</div>
 		</div>
 	</header>
 );
 
-const mapStateToProps = (state, props) => {
-	return {
-		isAuthenticated: !!state.auth.uid
-	};
-};
+const mapStateToProps = (state) => ({
+	isAuthenticated: !!state.auth.uid
+});
 
 const mapDispatchToProps = (dispatch) => ({
 	startLogout: () => dispatch(startLogout())
