@@ -1,6 +1,6 @@
 
 import db from '../firebase/firebase';
-const POST_NUMBER =2; // Number of posts loaded on each request
+const POST_NUMBER = 5; // Number of posts loaded on each request
 
 export const addPost = (post) => ({
 	type: 'ADD_POST',
